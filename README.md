@@ -7,13 +7,9 @@ Objective-C implementation of jegarn client.
 
 ## Install
 
-first, edit your PodFile to add msgpack support.
+    pod "JegarnClient"
 
-    pod "MPMessagePack"
 
-then, copy the Jegarn iOS SDK into your Library directory.
-
-    copy "Jegarn" into your project
 
 
 ## Example
