@@ -23,27 +23,27 @@ JegarnPacketManagersImplementationSharedInstance;
 - (instancetype)init {
     self = [super init];
     if (self) {
-        _delegates = [[NSMutableArray alloc] init];
+        self.delegates = [[NSMutableArray alloc] init];
     }
 
     return self;
 }
 
 - (BOOL)addDelegate:(id)delegate {
-    for (NSUInteger i = 0; i < _delegates.count; ++i) {
-        if (_delegates[i] == delegate) {
+    for (NSUInteger i = 0; i < self.delegates.count; ++i) {
+        if (self.delegates[i] == delegate) {
             return NO;
         }
     }
-    [_delegates addObject:delegate];
+    [self.delegates addObject:delegate];
     return YES;
 }
 
 - (BOOL)removeDelegate:(id)delegate
 {
-    for (NSUInteger i = 0; i < _delegates.count; ++i) {
-        if (_delegates[i] == delegate) {
-            [_delegates removeObjectAtIndex:i];
+    for (NSUInteger i = 0; i < self.delegates.count; ++i) {
+        if (self.delegates[i] == delegate) {
+            [self.delegates removeObjectAtIndex:i];
             return YES;
         }
     }

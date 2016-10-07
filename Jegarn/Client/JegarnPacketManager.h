@@ -8,7 +8,6 @@
 @protocol JegarnChatPacketListenerDelegate;
 @protocol JegarnGroupCHatPacketListenerDelegate;
 @protocol JegarnChatRoomPacketListenerDelegate;
-@protocol JegarnNotificationPacketListenerDelegate;
 @class JegarnPacket;
 
 
@@ -16,28 +15,28 @@
 @public
     NSMutableArray *_delegates;
 }
-@property (nonatomic, strong, readonly) NSMutableArray *delegates;
+@property (nonatomic, strong) NSMutableArray *delegates;
 + (instancetype)sharedInstance;
 - (BOOL)addDelegate:(id)delegate;
 - (BOOL)removeDelegate:(id)delegate;
 @end
 
 @interface JegarnChatPacketManager : JegarnPacketManager
-@property (nonatomic, strong, readwrite) NSMutableArray <JegarnChatPacketListenerDelegate> *delegates;
+@property (nonatomic, strong, readwrite) NSMutableArray *delegates;
 + (instancetype)sharedInstance;
 @end
 
 @interface JegarnGroupChatPacketManager : JegarnPacketManager
-@property (nonatomic, strong, readwrite) NSMutableArray <JegarnGroupCHatPacketListenerDelegate> *delegates;
+@property (nonatomic, strong, readwrite) NSMutableArray *delegates;
 + (instancetype)sharedInstance;
 @end
 
 @interface JegarnChatRoomPacketManager : JegarnPacketManager
-@property (nonatomic, strong, readwrite) NSMutableArray <JegarnChatRoomPacketListenerDelegate> *delegates;
+@property (nonatomic, strong, readwrite) NSMutableArray *delegates;
 + (instancetype)sharedInstance;
 @end
 
 @interface JegarnNotificationPacketManager : JegarnPacketManager
-@property (nonatomic, strong, readwrite) NSMutableArray <JegarnNotificationPacketListenerDelegate> *delegates;
+@property (nonatomic, strong, readwrite) NSMutableArray *delegates;
 + (instancetype)sharedInstance;
 @end
