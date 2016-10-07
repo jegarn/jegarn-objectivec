@@ -32,7 +32,7 @@
             @"uid" : self.content.uid,
             @"account" : self.content.account,
             @"password" : self.content.password,
-            @"status" : [NSString stringWithFormat:@"%i", self.content.status],
+            @"status" : [NSString stringWithFormat:@"%i", (int) self.content.status],
     };
     return dict;
 }

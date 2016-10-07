@@ -22,17 +22,33 @@
     NSMutableArray *delegates = nil;
     if ([packet isKindOfClass:[JegarnChatPacket class]]) {
         delegates = [JegarnChatPacketManager sharedInstance].delegates;
+        for (NSUInteger i = 0; i < delegates.count; ++i) {
+            DDLogVerbose(@"[JegarnListener] packetListener processChatPacket %@", delegates[i]);
+            if (![delegates[i] processPacket:(JegarnChatPacket *) packet]) {
+                return;
+            }
+        }
     } else if ([packet isKindOfClass:[JegarnGroupChatPacket class]]) {
         delegates = [JegarnGroupChatPacketManager sharedInstance].delegates;
+        for (NSUInteger i = 0; i < delegates.count; ++i) {
+            DDLogVerbose(@"[JegarnListener] packetListener processGroupChatPacket %@", delegates[i]);
+            if (![delegates[i] processPacket:(JegarnGroupChatPacket *) packet]) {
+                return;
+            }
+        }
     } else if ([packet isKindOfClass:[JegarnChatRoomPacket class]]) {
         delegates = [JegarnChatRoomPacketManager sharedInstance].delegates;
+        for (NSUInteger i = 0; i < delegates.count; ++i) {
+            DDLogVerbose(@"[JegarnListener] packetListener processChatRoomPacket %@", delegates[i]);
+            if (![delegates[i] processPacket:(JegarnChatRoomPacket *) packet]) {
+                return;
+            }
+        }
     } else if ([packet isKindOfClass:[JegarnNotificationPacket class]]) {
         delegates = [JegarnNotificationPacketManager sharedInstance].delegates;
-    }
-    if (delegates) {
         for (NSUInteger i = 0; i < delegates.count; ++i) {
-            DDLogVerbose(@"[JegarnListener] packetListener processPacket %@", delegates[i]);
-            if (![delegates[i] processPacket:packet]) {
+            DDLogVerbose(@"[JegarnListener] packetListener processNotificationPacket %@", delegates[i]);
+            if (![delegates[i] processPacket:(JegarnNotificationPacket *) packet]) {
                 return;
             }
         }

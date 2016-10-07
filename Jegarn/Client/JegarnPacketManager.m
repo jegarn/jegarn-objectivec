@@ -17,6 +17,7 @@ static id _instance;                                     \
 }
 
 @implementation JegarnPacketManager
+@synthesize delegates = _delegates;
 JegarnPacketManagersImplementationSharedInstance;
 
 - (instancetype)init {
@@ -52,17 +53,21 @@ JegarnPacketManagersImplementationSharedInstance;
 @end
 
 @implementation JegarnChatPacketManager
+@synthesize delegates;
 JegarnPacketManagersImplementationSharedInstance;
 @end
 
 @implementation JegarnGroupChatPacketManager
+@synthesize delegates;
 JegarnPacketManagersImplementationSharedInstance;
 @end
 
 @implementation JegarnChatRoomPacketManager
+@synthesize delegates;
 JegarnPacketManagersImplementationSharedInstance;
 @end
 
 @implementation JegarnNotificationPacketManager
+@synthesize delegates;
 JegarnPacketManagersImplementationSharedInstance;
 @end

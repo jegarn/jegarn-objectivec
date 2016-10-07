@@ -17,7 +17,7 @@
     dict[@"type"] = self.type;
     dict[@"content"] = @{
             @"type" : [JegarnTextChatRoomPacket packetSubType],
-            @"group_id" : [NSString stringWithFormat:@"%i", self.content.groupId],
+            @"group_id" : [NSString stringWithFormat:@"%i", (int) self.content.groupId],
             @"text" : self.content.text ? self.content.text : @"",
     };
 
